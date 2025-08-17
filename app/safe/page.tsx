@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Shield, Users, Clock, CheckCircle, XCircle, ExternalLink, Wallet, ArrowRight } from "lucide-react"
 import { MobileNav } from "@/components/mobile-nav"
@@ -50,15 +49,15 @@ export default function SafePage() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "pending":
-        return "bg-yellow-500/10 text-yellow-500 border-yellow-500/20"
+        return "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20"
       case "approved":
-        return "bg-green-500/10 text-green-500 border-green-500/20"
+        return "bg-green-500/10 text-green-500 border border-green-500/20"
       case "executed":
-        return "bg-blue-500/10 text-blue-500 border-blue-500/20"
+        return "bg-blue-500/10 text-blue-500 border border-blue-500/20"
       case "rejected":
-        return "bg-red-500/10 text-red-500 border-red-500/20"
+        return "bg-red-500/10 text-red-500 border border-red-500/20"
       default:
-        return "bg-gray-500/10 text-gray-500 border-gray-500/20"
+        return "bg-gray-500/10 text-gray-500 border border-gray-500/20"
     }
   }
 
@@ -247,10 +246,12 @@ export default function SafePage() {
                                 <div className="flex-1">
                                   <div className="flex items-center gap-2 mb-2">
                                     <h3 className="font-semibold">{proposal.title}</h3>
-                                    <Badge className={getStatusColor(proposal.status)}>
+                                    <span
+                                      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${getStatusColor(proposal.status)}`}
+                                    >
                                       {getStatusIcon(proposal.status)}
                                       <span className="ml-1 capitalize">{proposal.status}</span>
-                                    </Badge>
+                                    </span>
                                   </div>
                                   <p className="text-sm text-muted-foreground mb-3">{proposal.description}</p>
                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
