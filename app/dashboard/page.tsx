@@ -2,8 +2,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowDown, ArrowUp, BarChart3, Clock, DollarSign, Shield, Wallet } from "lucide-react"
+import { ArrowDown, ArrowUp, BarChart3, Clock, DollarSign, Shield } from "lucide-react"
 import { MobileNav } from "@/components/mobile-nav"
+import { AddFundsDialog } from "@/components/add-funds-dialog"
 
 export default function Dashboard() {
   return (
@@ -38,10 +39,7 @@ export default function Dashboard() {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <h1 className="text-2xl sm:text-3xl font-bold">Dashboard</h1>
-              <Button className="w-full sm:w-auto">
-                <Wallet className="mr-2 h-4 w-4" />
-                Add Funds
-              </Button>
+              <AddFundsDialog />
             </div>
             <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               <Card>
