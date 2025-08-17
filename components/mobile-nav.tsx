@@ -21,6 +21,10 @@ export function MobileNav() {
       label: "Transactions",
     },
     {
+      href: "/safe",
+      label: "Safe",
+    },
+    {
       href: "/security",
       label: "Security",
     },
@@ -42,7 +46,7 @@ export function MobileNav() {
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-2 font-bold">
             <Shield className="h-5 w-5" />
-            <span>SafeWallet</span>
+            <span>SafeVault</span>
           </div>
           <nav className="flex flex-col gap-4">
             {routes.map((route) => (
