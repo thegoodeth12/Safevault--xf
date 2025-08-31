@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import React, { createContext, useContext, useEffect, useState } from "react"
 
 interface WalletContextType {
   account: string | null
@@ -22,7 +22,7 @@ export function useWallet() {
 }
 
 interface WalletProviderProps {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export function WalletProvider({ children }: WalletProviderProps) {
@@ -156,7 +156,7 @@ export function WalletProvider({ children }: WalletProviderProps) {
     switchChain,
   }
 
-  return <WalletContext.Provider value={value}>{children}</WalletContext.Provider>
+  return React.createElement(WalletContext.Provider, { value }, children)
 }
 
 function getChainData(chainId: number) {
